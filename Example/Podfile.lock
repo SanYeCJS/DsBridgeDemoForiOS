@@ -1,0 +1,23 @@
+PODS:
+  - dsBridge (3.0.6)
+  - iOSForDsBridge (0.1.0)
+
+DEPENDENCIES:
+  - dsBridge
+  - iOSForDsBridge (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - dsBridge
+
+EXTERNAL SOURCES:
+  iOSForDsBridge:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  dsBridge: 48b62ee8a411ad601a88d6f6c8cf6cb634b206b7
+  iOSForDsBridge: 27bb92f7697853621f8491f718ccd189311075cd
+
+PODFILE CHECKSUM: ee0beb34e02e55a6963242c444895cdafd328695
+
+COCOAPODS: 1.10.0.rc.1

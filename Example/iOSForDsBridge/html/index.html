@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=0.8,user-scalable=no"/>
+        <title></title>
+        <script src="dsbridge.js"></script>
+        <script type="text/javascript">
+            
+            //同步 ---------------------------------
+            function jsInvokeNativewWithArgs(username) {
+                var value = dsBridge.call("saySyncHello", username)
+                document.getElementById("testValue").innerText = value;
+            };
+            
+            function jsInvokeNativewWithNoArgs() {
+                var value = dsBridge.call("saySyncHello2");
+                document.getElementById("testValue").innerText = value;
+            }
+            
+            
+            //异步 ---------------------------------
+            function jsInvokeNativeWithArgsAndBlock(username) {
+                dsBridge.call("sayAsyncHello", username, function(returnValue) {
+                    document.getElementById("testValue2").innerText = returnValue;
+                })
+            }
+            
+            function jsInvokeNativeWithNoArgsBlock() {
+                dsBridge.call("sayAsyncHello2", function(returnValue) {
+                    document.getElementById("testValue2").innerText = returnValue;
+                })
+            }
+            
+            //给原生调用的方法(
+            function registNativeInvokeMethods() {
+                //注册加法(同步)
+                dsBridge.register("addMethod", function(value1, value2) {
+                    return value1 + value2;
+                });
+                
+                //注册异步减法带回调
+                dsBridge.registerAsyn("subMethod", function(value1, value2, callBackBlock) {
+                    callBackBlock(value1 - value2);
+                });
+                
+                //注册多个异步方法
+                dsBridge.registerAsyn("async", {
+                    tag : "async",
+                    myadd2: function(value1, value2, callBackBlock) {
+                        callBackBlock(value1 + value2);
+                    },
+                    mysub2: function(value1, value2, callBackBlock) {
+                        callBackBlock(value1 - value2);
+                    }
+                });
+            }
+            
+            window.onload = function() {
+                var dsbridge = dsBridge.call();
+            };
+            
+        </script>
+    </head>
+    
+    <body>
+        <button onclick="jsInvokeNativewWithArgs('zhangsan')">js调用原生单个参数带回调</button>
+        <button onclick="jsInvokeNativewWithNoArgs()">js调用原生无参带回调</button>
+        <div id="testValue"></div>
+        <hr></hr>
+        
+        <button onclick="jsInvokeNativeWithArgsAndBlock('lisi')">js调用原生单个参数方法带回调</button>
+        <button onclick="jsInvokeNativeWithNoArgsBlock()">js调用原生单个参数方法带回调</button>
+        <div id="testValue2"></div>
+        <hr></hr>
+        
+        <button onclick="registNativeInvokeMethods()">js注册给原生调用的函数, 不点击，原生无法调用js任意方法</button>
+    </body>
+    
+    
+</html>
