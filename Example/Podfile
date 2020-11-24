@@ -4,7 +4,7 @@ platform :ios, '8.0'
 
 target 'iOSForDsBridge_Example' do
   pod 'iOSForDsBridge', :path => '../'
-
+  pod "dsBridge"
   target 'iOSForDsBridge_Tests' do
     inherit! :search_paths
 

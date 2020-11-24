@@ -24,6 +24,9 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		C0FA00BF256BEA4600441239 /* JSInvokeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C0FA00BE256BEA4600441239 /* JSInvokeTest.m */; };
+		C0FA00C6256BEEBC00441239 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C0FA00C5256BEEBC00441239 /* index.html */; };
+		C0FA00CA256BF24D00441239 /* dsbridge.js in Resources */ = {isa = PBXBuildFile; fileRef = C0FA00C9256BF24D00441239 /* dsbridge.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,10 +65,14 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72EDF6813DDBFD7F8BB75696 /* Pods-iOSForDsBridge_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSForDsBridge_Example.debug.xcconfig"; path = "Target Support Files/Pods-iOSForDsBridge_Example/Pods-iOSForDsBridge_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8CCF39FAEC6A676A77C98477 /* iOSForDsBridge.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = iOSForDsBridge.podspec; path = ../iOSForDsBridge.podspec; sourceTree = "<group>"; };
+		8CCF39FAEC6A676A77C98477 /* iOSForDsBridge.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = iOSForDsBridge.podspec; path = ../iOSForDsBridge.podspec; sourceTree = "<group>"; };
 		9A1C3C6AEC81827FDFA5DB4D /* Pods-iOSForDsBridge_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSForDsBridge_Example.release.xcconfig"; path = "Target Support Files/Pods-iOSForDsBridge_Example/Pods-iOSForDsBridge_Example.release.xcconfig"; sourceTree = "<group>"; };
-		E4BF7665F0A581E79E18173E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		E8E49CD38B637A29FF697A5A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		C0FA00BD256BEA4600441239 /* JSInvokeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSInvokeTest.h; sourceTree = "<group>"; };
+		C0FA00BE256BEA4600441239 /* JSInvokeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSInvokeTest.m; sourceTree = "<group>"; };
+		C0FA00C5256BEEBC00441239 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		C0FA00C9256BF24D00441239 /* dsbridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = dsbridge.js; sourceTree = "<group>"; };
+		E4BF7665F0A581E79E18173E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		E8E49CD38B637A29FF697A5A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F3938458E7F5551EB6F4ABD7 /* Pods_iOSForDsBridge_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSForDsBridge_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,6 +139,8 @@
 		6003F593195388D20070C39A /* Example for iOSForDsBridge */ = {
 			isa = PBXGroup;
 			children = (
+				C0FA00C4256BEE9A00441239 /* html */,
+				C0FA00BC256BEA1E00441239 /* invokeJS */,
 				6003F59C195388D20070C39A /* JSAppDelegate.h */,
 				6003F59D195388D20070C39A /* JSAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -193,8 +202,25 @@
 				408ED3EB20ECA52734821E0E /* Pods-iOSForDsBridge_Tests.debug.xcconfig */,
 				24893C50018547CCCC0B163A /* Pods-iOSForDsBridge_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C0FA00BC256BEA1E00441239 /* invokeJS */ = {
+			isa = PBXGroup;
+			children = (
+				C0FA00BD256BEA4600441239 /* JSInvokeTest.h */,
+				C0FA00BE256BEA4600441239 /* JSInvokeTest.m */,
+			);
+			path = invokeJS;
+			sourceTree = "<group>";
+		};
+		C0FA00C4256BEE9A00441239 /* html */ = {
+			isa = PBXGroup;
+			children = (
+				C0FA00C9256BF24D00441239 /* dsbridge.js */,
+				C0FA00C5256BEEBC00441239 /* index.html */,
+			);
+			path = html;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +284,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -277,7 +304,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0FA00C6256BEEBC00441239 /* index.html in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				C0FA00CA256BF24D00441239 /* dsbridge.js in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -324,10 +353,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-iOSForDsBridge_Example/Pods-iOSForDsBridge_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/dsBridge/dsBridge.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSForDsBridge/iOSForDsBridge.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/dsBridge.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSForDsBridge.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,6 +397,7 @@
 			files = (
 				6003F59E195388D20070C39A /* JSAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* JSViewController.m in Sources */,
+				C0FA00BF256BEA4600441239 /* JSInvokeTest.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
